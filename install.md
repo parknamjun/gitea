@@ -120,3 +120,11 @@ gitea|root@28a65bec36db:/var/lib/gitea># systemctl status gitea
 # ps command
 gitea|root@28a65bec36db:/gitea_install># yum install procps -y
 ```
+
+8. finalize
+* db 비밀번호, HTTP 수신포트를 지정
+  * ![image](https://github.com/parknamjun/gitea/assets/4444533/3ad7e9fe-50e5-41c2-8be7-861d4ec1edf2)
+  * ![image](https://github.com/parknamjun/gitea/assets/4444533/51901d33-348d-493e-ae42-d5aa479f3dd9)
+   
+
+

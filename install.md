@@ -90,7 +90,7 @@ gitea|root@28a65bec36db:/gitea_install># chown root:git /etc/gitea
 gitea|root@28a65bec36db:/gitea_install># chmod 770 /etc/gitea
 ```
 
-* 설치 후 속성을 변경해야 함
+* 설치 후 속성 변경을 권장
 ```
 NOTE: /etc/gitea is temporarily set with write permissions for user git so that the web installer can write the configuration file. After the installation is finished, it is recommended to set permissions to read-only using:
 

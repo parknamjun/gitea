@@ -101,9 +101,21 @@ NOTE: /etc/gitea is temporarily set with write permissions for user git so that 
 7. gitea service install
 * service file : [https://docs.gitea.io/en-us/installation/linux-service/](https://github.com/go-gitea/gitea/blob/main/contrib/systemd/gitea.service)
 ```
-# 위 링크 내용을 아래 위치에 작성
+# 위 링크 내용을 아래 위치에 작성하고, gitea 파일 위치를 수정해준다
+# ExecStart=/usr/bin/gitea web --config /etc/gitea/app.ini
 gitea|root@28a65bec36db:/etc/systemd/system># ls -l gitea.service
--rw-r--r-- 1 root root 2456 May 11 11:15 gitea.service
+-rwxrwxrwx 1 root root 2456 May 11 11:15 gitea.service
+
+gitea|root@28a65bec36db:/var/lib/gitea># systemctl start gitea
+gitea|root@28a65bec36db:/var/lib/gitea># systemctl status gitea
+● gitea.service - Gitea (Git with a cup of tea)
+   Loaded: loaded (/etc/systemd/system/gitea.service; enabled; vendor preset: disabled)
+   Active: active (running) since Thu 2023-05-11 11:33:18 KST; 5s ago
+ Main PID: 230 (gitea)
+    Tasks: 9 (limit: 25148)
+   Memory: 109.5M
+   CGroup: /system.slice/gitea.service
+           └─230 /usr/bin/gitea web --config /etc/gitea/app.ini
 
 # ps command
 gitea|root@28a65bec36db:/gitea_install># yum install procps -y

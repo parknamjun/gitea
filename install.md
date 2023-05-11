@@ -93,9 +93,8 @@ gitea|root@28a65bec36db:/gitea_install># chmod 770 /etc/gitea
 * 설치 후 속성 변경을 권장
 ```
 NOTE: /etc/gitea is temporarily set with write permissions for user git so that the web installer can write the configuration file. After the installation is finished, it is recommended to set permissions to read-only using:
-
-*chmod 750 /etc/gitea
-*chmod 640 /etc/gitea/app.ini
+chmod 750 /etc/gitea
+chmod 640 /etc/gitea/app.ini
 ```
 
 7. gitea service install
@@ -125,6 +124,8 @@ gitea|root@28a65bec36db:/gitea_install># yum install procps -y
 * db 비밀번호, HTTP 수신포트를 지정
   * ![image](https://github.com/parknamjun/gitea/assets/4444533/3ad7e9fe-50e5-41c2-8be7-861d4ec1edf2)
   * ![image](https://github.com/parknamjun/gitea/assets/4444533/51901d33-348d-493e-ae42-d5aa479f3dd9)
-   
+  * ![image](https://github.com/parknamjun/gitea/assets/4444533/7cf5373c-786f-4326-a42f-f142e711e9d4)
+  * ![image](https://github.com/parknamjun/gitea/assets/4444533/5d863024-6c97-42dd-82d7-50274f1d41df)
+* To be continue....
 
 

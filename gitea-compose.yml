@@ -24,11 +24,11 @@ services:
       network:
         ipv4_address: 172.16.1.2
     restart: always
+    
+    #/data/gitea/ssh는 key 파일 보안 속성문제가 있어 윈도우 환경에서는 마운트하지 않음  
     volumes:
-      - /d/docker-volume/cicd/gitea/var/lib/gitea:/var/lib/gitea
-      - /d/docker-volume/cicd/gitea/etc/gitea:/etc/gitea      
-      #- /d/docker-volume/cicd/gitea/etc/timezone:/etc/timezone:ro
-      #- /d/docker-volume/cicd/gitea/etc/localtime:/etc/localtime:ro
+      - /d/docker-volume/cicd/gitea/data/git:/data/git    
+      - /d/docker-volume/cicd/gitea/data/gitea:/data/gitea  
     ports:
       - 9080:3000
     depends_on:

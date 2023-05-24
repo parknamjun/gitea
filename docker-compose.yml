@@ -1,12 +1,10 @@
-# docker network create --gateway 172.16.1.1 --subnet 172.16.1.0/24 mynetwork
-# docker run -itd --privileged --net mynetwork --ip 172.16.1.2 --name gitea -p 9080:8080 -p 20022:22 lanovia/rocky-8.7-ssh
-# docker-compose -f cicd-docker.yml up -d
-# docker-compose -f cicd-docker.yml down
+# docker-compose -f docker-compose.yml -p cicd up -d
+# docker-compose -f docker-compose.yml -p cicd down
 
 version: "3"
 
 services:
-  cicd:
+  gitea:
     container_name: gitea
     image: gitea/gitea:1.19.3
     environment:
@@ -22,16 +20,17 @@ services:
       network:
         ipv4_address: 172.16.1.2
     restart: always
-    
-    #/data/gitea/ssh는 key 파일 보안 속성문제가 있어 윈도우 환경에서는 마운트하지 않음  
+
     volumes:
       - /d/docker-volume/cicd/gitea/data/git:/data/git    
       - /d/docker-volume/cicd/gitea/data/gitea:/data/gitea  
+      #- /d/docker-volume/cicd/gitea/etc/localtime:/etc/localtime:ro
+
     ports:
       - 9080:3000
     depends_on:
       - mariadb
-
+            
   mariadb:
     container_name: mariadb
     image: mariadb:10.6.13
@@ -60,3 +59,6 @@ networks:
       config:
         - subnet: 172.16.1.0/24
           gateway: 172.16.1.1
+
+
+

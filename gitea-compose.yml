@@ -1,12 +1,10 @@
-# docker-compose -f gitea-compose.yml up -d, after stop/start...
-version: "3"
-
 # docker network create --gateway 172.16.1.1 --subnet 172.16.1.0/24 mynetwork
 # docker run -itd --privileged --net mynetwork --ip 172.16.1.2 --name gitea -p 9080:8080 -p 20022:22 lanovia/rocky-8.7-ssh
-
-# start/down
 # docker-compose -f cicd-docker.yml up -d
 # docker-compose -f cicd-docker.yml down
+
+version: "3"
+
 services:
   cicd:
     container_name: gitea
